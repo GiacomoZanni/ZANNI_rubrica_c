@@ -11,16 +11,16 @@ typedef struct {
 
 Contatto rubrica[MAX_CONTATTI];
 int nContatti = 0;
-void aggiungiContatto();
-void visualizzaContatti();
-void cercaContatto();
-void eliminaContatto();
+void AggiungiContatto();
+void VisualizzaContatti();
+void CercaContatto();
+void EliminaContatto();
 
 int main() {
     int scelta;
 
     while (1) {
-        printf("\n--- RUBRICA ---\n");
+        printf("\n    RUBRICA    \n");
         printf("1. Aggiungi contatto\n");
         printf("2. Visualizza tutti i contatti\n");
         printf("3. Ricerca contatto per cognome\n");
@@ -30,15 +30,15 @@ int main() {
 
         if (scanf("%d", &scelta) != 1) {
             printf("Input non valido. Riprovare.\n");
-            while (getchar() != '\n'); /* pulisco il buffer */
+            while (getchar() != '\n');
             continue;
         }
 
         switch (scelta) {
-            case 1: aggiungiContatto(); break;
-            case 2: visualizzaContatti(); break;
-            case 3: cercaContatto(); break;
-            case 4: eliminaContatto(); break;
+            case 1: AggiungiContatto(); break;
+            case 2: VisualizzaContatti(); break;
+            case 3: CercaContatto(); break;
+            case 4: EliminaContatto(); break;
             case 5:
                 printf("Uscita. Arrivederci!\n");
                 return 0;
@@ -49,7 +49,7 @@ int main() {
     return 0;
 }
 
-void aggiungiContatto() {
+void AggiungiContatto() {
     if (nContatti >= MAX_CONTATTI) {
         printf("Rubrica piena: impossibile aggiungere altri contatti.\n");
         return;
@@ -68,7 +68,7 @@ void aggiungiContatto() {
     printf("Contatto aggiunto con successo.\n");
 }
 
-void visualizzaContatti() {
+void VisualizzaContatti() {
     if (nContatti == 0) {
         printf("Nessun contatto nella rubrica.\n");
         return;
@@ -84,7 +84,7 @@ void visualizzaContatti() {
     }
 }
 
-void cercaContatto() {
+void CercaContatto() {
     char cognomeRicerca[30];
     int trovato = 0;
 
@@ -109,7 +109,7 @@ void cercaContatto() {
     }
 }
 
-void eliminaContatto() {
+void EliminaContatto() {
     char cognomeDaEliminare[30];
     int indice = -1;
 
